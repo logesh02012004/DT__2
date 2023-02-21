@@ -284,8 +284,8 @@
             </div>
         </div>
         <div class="form-outer">
-            <form action="#">
-                <div class="page slide-page">
+            <form id="regForm" action="preview.html">
+                <div id="details" class="page slide-page">
                     <div class="title">
                         Institution Details
                     </div>
@@ -394,12 +394,34 @@
                     </div>
                     <div class="field btns">
                         <button class="prev-3 prev">Previous</button>
-                        <button class="submit">Submit</button>
+                        <button id="preview" type="submit" onclick="getTxt()">Preview</button>
                     </div>
                 </div>
             </form>
         </div>
     </div>
+    <script>
+        function getTxt(){
+            var institutionName = document.getElementById("institutionname").value;
+            var institutionUrl = document.getElementById("institutionurl").value;
+            var phoneNumber = document.getElementById("phonenumber").value;
+            var institutionEmail = document.getElementById("institutionemail").value;
+            var address = document.getElementById("address").value;
+            var city = document.getElementById("city").value;
+            var country = document.getElementById("country").value;
+
+
+
+            localStorage.setItem("name",institutionName);
+            localStorage.setItem("url",institutionUrl);
+            localStorage.setItem("phonenumber",phoneNumber);
+            localStorage.setItem("email",institutionEmail);
+            localStorage.setItem("address",address);
+            localStorage.setItem("city",city);
+            localStorage.setItem("country",country);
+        }
+        
+    </script>
     <script src="institute_register.js"></script>
 </body>
 

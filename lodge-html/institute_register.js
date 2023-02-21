@@ -5,7 +5,6 @@ const nextBtnSec = document.querySelector(".next-1");
 const prevBtnThird = document.querySelector(".prev-2");
 const nextBtnThird = document.querySelector(".next-2");
 const prevBtnFourth = document.querySelector(".prev-3");
-const submitBtn = document.querySelector(".submit");
 const progressText = document.querySelectorAll(".step p");
 const progressCheck = document.querySelectorAll(".step .check");
 const bullet = document.querySelectorAll(".step .bullet");
@@ -34,16 +33,7 @@ nextBtnThird.addEventListener("click", function (event) {
     progressText[current - 1].classList.add("active");
     current += 1;
 });
-submitBtn.addEventListener("click", function () {
-    bullet[current - 1].classList.add("active");
-    progressCheck[current - 1].classList.add("active");
-    progressText[current - 1].classList.add("active");
-    current += 1;
-    setTimeout(function () {
-        alert("Your Form Successfully Signed up");
-        location.reload();
-    }, 800);
-});
+
 prevBtnSec.addEventListener("click", function (event) {
     event.preventDefault();
     slidePage.style.marginLeft = "0%";
@@ -68,3 +58,14 @@ prevBtnFourth.addEventListener("click", function (event) {
     progressText[current - 2].classList.remove("active");
     current -= 1;
 });
+
+logo.addEventListener('change', () => {
+    const fr = new FileReader();
+
+    fr.readAsDataURL(logo.files[0]);
+    fr.addEventListener('load', () => {
+        const url = fr.result;
+        localStorage.setItem('institution-logo', url);
+
+    })
+})
